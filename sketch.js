@@ -21,15 +21,40 @@ class Walker {
     this.x = x
     this.y = y
     this.color = 0
+    this.direccion = 0
+  }
+  up(){
+    this.y += 1;
+  }
+  down(){
+    this.y -= 1;
+  }
+  left(){
+    this.x -= 1;
+  }
+  right(){
+    this.x += 1;
+  }
+
+  walk(){
+    this.direccion = int(random(0,4))
+    if(this.direccion == 0){
+      this.up();
+    }
+    if(this.direccion == 1){
+      this.down();
+    }
+    if(this.direccion == 2){
+      this.left();
+    }
+    if(this.direccion == 3){
+      this.right();
+    }
 
   }
-  walk(){
-    this.x += random(-2,2)
-    this.y += random(-2,2)
-  }
   display(){
-    noStroke()
-    stroke(this.color)
+    noStroke();
+    stroke(this.color);
     point(this.x,this.y);
     
     }
