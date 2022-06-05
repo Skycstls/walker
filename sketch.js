@@ -1,10 +1,11 @@
 particles = []
+
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(displayWidth, displayHeight);
   pixelDensity(2)
   noSmooth()
-  for (var i = 0; i < 1; i++) {
-    particles.push(new Walker(200, 200))
+  for (var i = 0; i < 20; i++) {
+    particles.push(new Walker(displayWidth/2, displayHeight/2))
   }
 }
 
@@ -57,7 +58,8 @@ class Walker {
   }
   display(){
     noStroke();
-    stroke(this.color);
+    colorMode(HSB)
+    stroke(0,0,0,0.5);
     point(this.x,this.y);
     point(this.x2,this.y);
     }
