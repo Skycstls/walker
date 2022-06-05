@@ -1,6 +1,6 @@
 particles = []
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(windowWidth, windowHeight);
   pixelDensity(2)
   noSmooth()
   for (var i = 0; i < 1; i++) {
@@ -9,7 +9,7 @@ function setup() {
 }
 
 function draw() {
-  background(220)
+  //background(220)
 for(var i = 0; i < particles.length; i++) {
   particles[i].walk()
   particles[i].display()
@@ -20,6 +20,7 @@ class Walker {
   constructor(x,y){
     this.x = x
     this.y = y
+    this.x2 = x
     this.color = 0
     this.direccion = 0
   }
@@ -31,9 +32,11 @@ class Walker {
   }
   left(){
     this.x -= 1;
+    this.x2 += 1;
   }
   right(){
     this.x += 1;
+    this.x2 -= 1;
   }
 
   walk(){
@@ -56,6 +59,6 @@ class Walker {
     noStroke();
     stroke(this.color);
     point(this.x,this.y);
-    
+    point(this.x2,this.y);
     }
   }
